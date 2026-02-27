@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Spirit - Fine Jewellery</title>
+    <meta name="description" content="Premium fine jewellery store. Shop necklaces, rings, earrings, and more.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/drawer.css">
+</head>
+
+<body>
+    <div id="app" class="app-container">
+
+        <!-- Splash Screen -->
+        <div id="splash-screen">
+            <div class="logo">SPIRIT</div>
+        </div>
+
+        <!-- Header -->
+        <header id="main-header" class="header">
+            <button class="icon-btn menu-btn" aria-label="Menu" onclick="app.toggleDrawer()">
+                <i data-lucide="menu"></i>
+            </button>
+            <div class="brand-logo" style="cursor: pointer;" onclick="app.navigate('home')">SPIRIT</div>
+            <div class="header-actions">
+                <button class="icon-btn search-btn" aria-label="Search"
+                    onclick="if(window.SearchOverlay) window.SearchOverlay.open()">
+                    <i data-lucide="search"></i>
+                </button>
+                <button class="icon-btn cart-btn" aria-label="Cart" onclick="app.navigate('cart')">
+                    <i data-lucide="shopping-bag"></i>
+                    <span class="cart-badge" id="cart-count">2</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Left Navigation Drawer -->
+        <div id="drawer-backdrop" class="drawer-backdrop" onclick="app.toggleDrawer()"></div>
+        <aside id="left-drawer" class="drawer">
+            <div class="drawer-header">
+                <div class="user-profile">
+                    <div class="avatar"><i data-lucide="user"></i></div>
+                    <div class="user-info">
+                        <span class="greeting">Hello, Guest</span>
+                        <span class="auth-link" onclick="app.navigate('profile'); app.toggleDrawer()">Sign In /
+                            Register</span>
+                    </div>
+                </div>
+                <button class="icon-btn close-drawer" onclick="app.toggleDrawer()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="drawer-content">
+                <nav class="drawer-nav">
+                    <h3 class="nav-section-title">Shop by Category</h3>
+                    <a href="#category" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="sparkles"></i>
+                        New Arrivals</a>
+                    <a href="#category" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="gem"></i> Fine
+                        Jewellery</a>
+                    <a href="#category" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="watch"></i>
+                        Luxury Watches</a>
+                    <a href="#category" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="gift"></i>
+                        Gifts & Bridal</a>
+                </nav>
+
+                <div class="drawer-divider"></div>
+
+                <nav class="drawer-nav">
+                    <h3 class="nav-section-title">My Account</h3>
+                    <a href="#profile" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="box"></i> Orders
+                        & Returns</a>
+                    <a href="#profile" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="heart"></i>
+                        Wishlist</a>
+                    <a href="#profile" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="map-pin"></i>
+                        Store Locator</a>
+                </nav>
+
+                <div class="drawer-divider"></div>
+
+                <nav class="drawer-nav mb-xl">
+                    <a href="#info" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="help-circle"></i>
+                        Customer Service</a>
+                    <a href="#home" class="drawer-link" onclick="app.toggleDrawer()"><i data-lucide="settings"></i>
+                        Settings</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main id="app-content" class="content-area">
+            <!-- Dynamic screen content will be injected here -->
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav id="bottom-nav" class="bottom-nav">
+            <button class="nav-item active" data-target="home" onclick="app.navigate('home')">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-target="category" onclick="app.navigate('category')">
+                <i data-lucide="layout-grid"></i>
+                <span>Category</span>
+            </button>
+            <button class="nav-item" data-target="blogs" onclick="app.navigate('blogs')">
+                <i data-lucide="book-open"></i>
+                <span>Blogs</span>
+            </button>
+            <button class="nav-item" data-target="profile" onclick="app.navigate('profile')">
+                <i data-lucide="user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/screens/home.js"></script>
+    <script src="js/screens/category.js"></script>
+    <script src="js/screens/product.js"></script>
+    <script src="js/screens/cart.js"></script>
+    <script src="js/screens/profile.js"></script>
+    <script src="js/screens/search.js"></script>
+    <script src="js/screens/checkout.js"></script>
+    <script src="js/screens/discover.js"></script>
+    <script src="js/screens/info.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
